@@ -22,3 +22,15 @@ var smart_read = (filename =>{
     return {code:404, text:error}
   }
 }
+
+http
+  .createServer(function(req, res) {
+    let url = "." + req["url"]; 
+    if (url.match(/\/$/)) url += "index.html";
+    console.log("URL = " + url);
+    let result = smart_read(url);
+    rea.writeHead(result.code,{"Contnt-Type": "text/html"});
+    res.write(result.text);
+    res.end(); //end the response
+  })
+  .listen(8080);

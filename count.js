@@ -6,7 +6,7 @@ var error = "";
 try {
   fs.statSync("./" + error404);
   error = fs.readFileSync("./" + error404);
-} catch {
+} catch(err) {
   error = "<html><body><h1>404 Not Found</h1><body><hrtl>";
 }
 var count = 0;
