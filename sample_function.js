@@ -29,7 +29,7 @@ http
     if (url.match(/\/$/)) url += "index.html";
     console.log("URL = " + url);
     let result = smart_read(url);
-    rea.writeHead(result.code,{"Contnt-Type": "text/html"});
+    res.writeHead(result.code,{"Content-Type": "text/html"});
     res.write(result.text);
     res.end(); //end the response
   })
